@@ -25,7 +25,7 @@
 - 4: Baigus naudoti parasykite `make clean`
 *Jeigu norite paleisti testingas.cpp*:
 - 1: `g++ -o testingas testingas.cpp`
-- 2: `./testingas
+- 2: `./testingas`
 
  
  
