@@ -1,11 +1,11 @@
 #include "functions.h"
 
-int naujasStudentas(int& studentusk, vector<studentai>& M, bool& vidurkis) {
+int naujasStudentas(int& studentusk, Vector<studentai>& M, bool& vidurkis) {
     string pasirinkimas;
     string p;
     float suma = 0;
     int masyvod = 0;
-    vector<int> namudarbai;
+    Vector<int> namudarbai;
     while (true) {
         cout << "Ar norite skaityti is failo? (Y/N)";
         cin >> pasirinkimas;
@@ -150,7 +150,7 @@ int naujasStudentas(int& studentusk, vector<studentai>& M, bool& vidurkis) {
     }
     for (int i = 0; i < masyvod - 1; i++)
         suma += namudarbai[i];
-    M[studentusk].setGalutinisVid((double)suma / (masyvod - 1) * 0.4 + 0.6 * namudarbai.back());
+    M[studentusk].setGalutinisVid((double)suma / (masyvod - 1) * 0.4 + 0.6 * (*namudarbai.end()));
     sort(namudarbai.begin(), namudarbai.end());
     M[studentusk].setGalutinisMed(mediana(namudarbai, masyvod));
     cout << "-----------------------------------------" << endl;
@@ -173,7 +173,7 @@ studentai& studentai::operator=(const studentai& gc1){
     this->galutinisVid = gc1.galutinisVid;
     return *this;
 }
-double mediana(vector<int>M, int masyvod) {
+double mediana(Vector<int>M, int masyvod) {
     return masyvod % 2 == 0 ? (double)(((M[(masyvod / 2) - 1]) + (M[(masyvod / 2)])) / 2.0) : M[(masyvod / 2)];
 }
 bool lyginimas(studentai& a, studentai& b) {
@@ -182,7 +182,7 @@ bool lyginimas(studentai& a, studentai& b) {
 bool testLyginimas(studentai& a,studentai& b) {
     return a.getGalutinisVid() > b.getGalutinisVid();
 }
-void spausdinti(vector<studentai>& studentas, bool vidurkis, ofstream& ff) {
+void spausdinti(Vector<studentai>& studentas, bool vidurkis, ofstream& ff) {
     char buffer[80];
     if (vidurkis == true)
         sprintf(buffer, "%-20s %-20s %-20s \n", "Pavarde", "Vardas", "Galutinis (Vid.)");
@@ -223,7 +223,7 @@ void Generuotifailus(string a, int& b) {
     std::chrono::duration<double> diff = end - start;
     cout << "=== Irasymas uztruko: " << diff.count() << "\n";
 }
-void TestNuskaitymas(string pasirinkimas, int& b, vector <studentai>& M) {
+void TestNuskaitymas(string pasirinkimas, int& b, Vector <studentai>& M) {
     cout << "Skaitomi vardai is failo " << pasirinkimas << "\n";
     auto start = std::chrono::high_resolution_clock::now();
     ifstream fd;
@@ -252,7 +252,7 @@ void TestNuskaitymas(string pasirinkimas, int& b, vector <studentai>& M) {
     std::chrono::duration<double> diff = end - start;
     cout << "=== Skaitymas uztruko: " << diff.count() << "\n";
 }
-void TestRusiavimas(int& k, vector <studentai>& studentas, vector<studentai>& kietekai) { //kietekai yra vargsiukai
+void TestRusiavimas(int& k, Vector <studentai>& studentas, Vector<studentai>& kietekai) { //kietekai yra vargsiukai
     auto start = std::chrono::high_resolution_clock::now();
     for (auto i : studentas) {
         if (i.getGalutinisVid() < 5)

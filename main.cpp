@@ -21,16 +21,16 @@ int main() {
                     break;
                 }
             }
-            vector<studentai> studentas;
+            Vector<studentai> studentas;
             naujasStudentas(studentusk, studentas, vidurkis);
-            sort(studentas.begin(), studentas.end(), lyginimas);
+            std::sort(studentas.begin(), studentas.end(), lyginimas);
             ofstream ff("kursiokai.txt");
             spausdinti(studentas, vidurkis, ff);
         }
         else if (pasirinkimas == "y" || pasirinkimas == "Y") {
             int k;
-            vector <studentai> kietekai;
-            vector <studentai> studentas;
+            Vector <studentai> kietekai;
+            Vector <studentai> studentas;
             cout << "Kuriami failai..\n ";
             ofstream fk("kietekai.txt");
             ofstream fv("vargsiukai.txt");

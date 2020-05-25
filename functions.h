@@ -1,9 +1,9 @@
 #ifndef FUNCTIONS_H_INCLUDED
 #define FUNCTIONS_H_INCLUDED
 
+#include "testingas.h"
 #include <iostream>
 #include <iomanip>
-#include <vector>
 #include <algorithm>
 #include <cmath>
 #include <string>
@@ -16,9 +16,9 @@ using std::cout;
 using std::endl;
 using std::cin;
 using std::string;
-using std::vector;
 using std::ifstream;
 using std::ofstream;
+using std::sort;
 
 class zmogus{
 protected:
@@ -43,13 +43,13 @@ public:
 
 };
 ofstream& operator << (ofstream& os, const studentai& gc);
-int naujasStudentas(int& studentusk, vector<studentai>& M, bool& vidurkis);
-double mediana(vector<int>M, int masyvod);
+int naujasStudentas(int& studentusk, Vector<studentai>& M, bool& vidurkis);
+double mediana(Vector<int>M, int masyvod);
 bool lyginimas( studentai& a, studentai& b);
 bool testLyginimas( studentai& a,  studentai& b);
-void spausdinti(vector<studentai>& studentas, bool vidurkis, ofstream& ff);
+void spausdinti(Vector<studentai>& studentas, bool vidurkis, ofstream& ff);
 void Generuotifailus(string a, int& b);
-void TestNuskaitymas(string pasirinkimas, int& b, vector <studentai>& M);
-void TestRusiavimas(int& k, vector <studentai>& studentas, vector<studentai>& kietekai);
+void TestNuskaitymas(string pasirinkimas, int& b, Vector <studentai>& M);
+void TestRusiavimas(int& k, Vector <studentai>& studentas, Vector<studentai>& kietekai);
 
 #endif // FUNCTIONS_H_INCLUDED
