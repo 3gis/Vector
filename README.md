@@ -13,6 +13,7 @@
  
  ![](Vectortestingas.png)  
  std::vector (paimta iš https://github.com/3gis/Objektiniouzduotis/tree/V2.0):  
+ ![](stdvector.png)  
  
  
  
